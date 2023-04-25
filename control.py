@@ -11,11 +11,11 @@ import sv_ttk
 
 
 word_file_path = "min_template.docx"
-minutas_file_path = "MINUTAS/min_automation.xlsm"
+minutas_file_path = "CONTROL/min_automation.xlsm"
 pptx_file_path = "pptx_automation.xlsm"
-contrato_forta = "MINUTAS/CONTRATO/FORTALECEMOS/forta_contrato.xlsm"
-contrato_mexti ="MINUTAS/CONTRATO/MEXTI/mexti_contrato.xlsm"
-contrato_constru= "MINUTAS/CONTRATO/CONSTRUYENDO/constru_contrato.xlsm"
+contrato_forta = "CONTROL/CONTRATO/FORTALECEMOS/forta_contrato.xlsm"
+contrato_mexti ="CONTROL/CONTRATO/MEXTI/mexti_contrato.xlsm"
+contrato_constru= "CONTROL/CONTRATO/CONSTRUYENDO/constru_contrato.xlsm"
 
 def open_minuta_file():
     wb = xw.Book(minutas_file_path)
@@ -57,7 +57,7 @@ root.title("PANEL DE CONTROL")
 
 
 # Crear una imagen
-img = tk.PhotoImage(file="MINUTAS/IMAGENES/BUSINESS.png")
+img = tk.PhotoImage(file="CONTROL/IMAGENES/BUSINESS.png")
 
 # Crear un label para mostrar la imagen
 img_label = tk.Label(root, image=img)
