@@ -8,6 +8,7 @@ import win32com.client
 from tkinter import *
 from ttkthemes import ThemedTk
 import sv_ttk
+import customtkinter
 
 
 word_file_path = "min_template.docx"
@@ -51,40 +52,20 @@ def open_mexti_contrato():
     wb.close()
 
 
-root = tkinter.Tk()
-root.title("PANEL DE CONTROL")
+#root = tkinter.Tk()
+#root.title("PANEL DE CONTROL")
 
+def button_callback():
+    print("button pressed")
 
+app = customtkinter.CTk()
+app.title("my app")
+app.geometry("400x150")
 
-# Crear una imagen
-img = tk.PhotoImage(file="CONTROL/IMAGENES/BUSINESS.png")
+button = customtkinter.CTkButton(app, text="MINUTAS", command=open_minuta_file)
+button.grid(row=0, column=0, padx=20, pady=20)
+button = customtkinter.CTkButton(app, text="PRESENTACIONES", command=open_minuta_file)
+button.grid(row=0, column=2, padx=20, pady=20)
 
-# Crear un label para mostrar la imagen
-img_label = tk.Label(root, image=img)
-img_label.pack(fill='both', expand=True)
+app.mainloop()
 
-
-
-root.geometry("800x450+100+100")
-menubar = tk.Menu(root)
-menubar.config(font=("Arial", 20))
-filemenu = tk.Menu(menubar, tearoff=0)
-filemenu.add_command(label="Plantilla Word", command=open_word_file)
-filemenu.add_command(label="Contrato Construyendo", command=open_constru_contrato)
-filemenu.add_command(label="Contrato Fortalecemos", command=open_forta_contrato)
-filemenu.add_command(label="Contrato Mexti", command=open_mexti_contrato)
-filemenu.add_command(label="Panel Minuta", command=open_minuta_file)
-filemenu.add_command(label="Panel PPTX", command=open_pptx_file)
-menubar.add_cascade(label="MENÚ", menu=filemenu)
-root.config(menu=menubar)
-
-
-title_bar = tk.Frame(root, bg='white', relief='raised')
-title_bar.place(relx=0, rely=0, relwidth=1, relheight=0.1)
-title_bar.bind('<B1-Motion>', lambda e: root.geometry(f'+{e.x_root}+{e.y_root}'))
-# Crear un label para mostrar el texto
-text_label = tk.Label(title_bar, text="BIENVENIDO, UTILIZA EL MENÚ PARA DESPLAZARTE ENTRE LAS OPCIONES", font=("Arial", 16))
-text_label.pack()
-
-sv_ttk.set_theme("dark")
-root.mainloop()
